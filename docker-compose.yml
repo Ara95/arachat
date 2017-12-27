@@ -1,0 +1,89 @@
+version: "2"
+services:
+    node8:
+        image: node:8
+        working_dir: /home/node/app
+        ports:
+            - "3088:3000"
+        volumes:
+            - ./:/home/node/app
+        command: "npm start"
+    node7:
+        image: node:7
+        working_dir: /home/node/app
+        ports:
+            - "3077:3000"
+        volumes:
+            - ./:/home/node/app
+        command: "npm start"
+    node6:
+        image: node:6
+        working_dir: /home/node/app
+        ports:
+            - "3066:3000"
+        volumes:
+            - ./:/home/node/app
+        command: "npm start"
+
+    node_latest_alpine:
+        build:
+            context: .
+            dockerfile: Docker/Dockerfile-node-latest
+        volumes:
+            - ./:/app/
+        ports:
+            - "3000:3000"
+    node7_alpine:
+        build:
+            context: .
+            dockerfile: Docker/Dockerfile-node-7-alpine
+        volumes:
+            - ./:/app/
+        ports:
+            - "3001:3001"
+    node6_alpine:
+        build:
+            context: .
+            dockerfile: Docker/Dockerfile-node-6-alpine
+        volumes:
+            - ./:/app/
+        ports:
+            - "3002:3002"
+
+
+    express:
+        build:
+            context: .
+            dockerfile: Docker/Dockerfile-express
+        environment:
+            - DBWEBB_PORT=3353
+            - DBWEBB_DSN=mongodb://mongodb:27017/test
+        volumes:
+            - ./:/app/
+            - /app/node_modules/
+        ports:
+            - 3353:3353
+        links:
+            - mongodb
+        command: "npm start"
+    mongodb:
+        image: mongo
+        container_name: "mongodb"
+        environment:
+            - MONGO_DATA_DIR=/data/db
+        volumes:
+            - ./data/db:/data/db
+        ports:
+            - 27017:27017
+        command: mongod
+
+    test:
+        build:
+            context: .
+            dockerfile: Docker/Dockerfile-node-latest
+        environment:
+            - DBWEBB_DSN=mongodb://mongodb:27017/test
+        links:
+            - express
+        volumes:
+            - ./:/home/node/app

@@ -1,0 +1,150 @@
+<!doctype html>
+
+<html>
+
+	<head>
+		<meta charset='utf-8'>
+		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+		<title> boringChat </title>
+		<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="/css/style.css">
+		<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.js"></script>
+		<style>
+		</style>
+	</head>
+
+	<body>
+		<div id='optionsBar'>
+
+
+			<div id='people'>
+				<h2 id='userGreeting'> Welcome, <%= user.local.username %> </h2>
+				<h3> currently online: </h3>
+				<ol id='userList'>
+				</ol>
+			</div>
+
+			<hr>
+
+
+				<hr>
+
+				<div id='sendPic'>
+					<h3> send picture </h3>
+					<input id="fileInput" style="display:none;" type="file">
+					<button onclick='fileHandler()'> select picture </button>
+				</div>
+
+			</div>
+		</div>
+
+
+		<div id='chatbox'>
+			<div id='display'>
+				<ul id="messages"></ul>
+			</div>
+			<hr>
+			<div id='sendMsg'>
+				<form action="">
+				<input id="m" autocomplete="off" placeholder='enter a message...'/>
+					<button> Send </button>
+				</form>
+			</div>
+		</div>
+
+		<script>
+			var socket = io();
+
+			$(function(){
+
+				var greeting = $('#userGreeting').text();
+				var username = greeting.substring(greeting.indexOf(',') + 1).trim();
+				socket.emit('userConnected', username);
+
+				socket.on('getCurrentUsers', function(userList){
+					$('#userList').empty();
+					var list = document.getElementById('userList');
+					for(var i = 0; i < userList.length; i++){
+						var user = document.createElement('li');
+						user.textContent = userList[i];
+						list.appendChild(user);
+					}
+				});
+
+				$('form').submit(function(){
+					socket.emit('chat message', {'user': username, 'msg': $('#m').val()});
+					$('#m').val('');
+					return false;
+				});
+
+				socket.on('chat message', function(msg){
+					$('#messages').append($('<li>').text(msg));
+				});
+
+				socket.on('image', function(imgData){
+					var img = new Image();
+					img.src = imgData.img;
+					var canvas = document.createElement('canvas');
+					canvas.setAttribute("width", "200px");
+					canvas.setAttribute("height", "200px");
+
+					img.onload = function(){
+						var ctx = canvas.getContext('2d');
+						ctx.drawImage(img, 0, 0, 200, 200);
+					}
+
+					var newListElement = document.createElement('li');
+					var timestamp = new Date().toLocaleString();
+
+					var user = document.createElement('span');
+					user.textContent = imgData.user + ": ";
+					newListElement.appendChild(user);
+
+					newListElement.appendChild(canvas);
+					var date = document.createElement('span');
+					date.textContent = timestamp;
+
+					newListElement.appendChild(date);
+					$('#messages').append(newListElement);
+				});
+			});
+
+			/*
+				import a picture
+			*/
+			function fileHandler(){
+				var input = document.getElementById('fileInput');
+				input.addEventListener('change', getFile, false);
+				input.click();
+			}
+
+			function getFile(e){
+
+				var reader = new FileReader();
+				var file = e.target.files[0];
+				var imgData;
+
+				if (!file.type.match(/image.*/)){
+					console.log("not a valid image");
+					return;
+				}
+
+				reader.onloadend = function(){
+					imgData = reader.result;
+
+					var greeting = $('#userGreeting').text();
+					var username = greeting.substring(greeting.indexOf(',') + 1).trim();
+					socket.emit('image', {'user': username, 'img': imgData});
+				}
+
+				//read file as a URL
+				reader.readAsDataURL(file);
+			};
+
+
+		</script>
+
+	</body>
+
+</html>

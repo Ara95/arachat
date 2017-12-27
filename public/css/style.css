@@ -1,0 +1,272 @@
+html, body {
+  height: 100%;
+  width: 100%;
+}
+body {
+  font: 13px;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+form input {
+  border: 1px solid #000;
+  padding: 10px;
+  width: 90%;
+  margin-right: 1%;
+}
+form button {
+  width: auto;
+  margin: 0;
+  background: rgb(130, 224, 255);
+  padding: 10px 15px 10px 15px;
+}
+
+
+#optionsBar {
+  display: inline-block;
+  height: 94%;
+  width: 20%;
+  border: 1px solid #000;
+  margin-right: 2%;
+  padding-left: 10px;
+  padding-right: 8px;
+  overflow: auto;
+}
+#chatbox {
+  display: inline-block;
+  position: absolute;
+  height: 100%;
+  width: 65%;
+}
+
+#display {
+  position: relative;
+  left: 0;
+  top: 0;
+  height: 90%;
+  border: 1px solid #000;
+  overflow: auto;
+}
+.ascii_face li {
+  font-size: 18px;
+}
+.ascii_face p {
+  display: inline-block;
+}
+#sendMsg{
+  width: 100%;
+}
+#optionsBar button {
+  padding: 3px 5px 3px 5px;
+  border: 1px solid #000;
+  border-radius: 6px;
+}
+#messages {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+#messages li {
+  padding: 5px 10px;
+  margin: 0;
+}
+#messages li:nth-child(odd){
+  background: #eee;
+}
+
+#picReactionChoices, #asciiReactionChoices {
+  display: none; /* only show when an option is selected */
+  border: 1px solid #000;
+  height: 10%; /* change this later */
+}
+
+#addNewEmoticon li {
+  list-style-type: none;
+}
+
+#addNewEmoticon ul {
+  padding-left: 0;
+}
+
+.asciiface:hover {
+  background-color: rgba(0, 178, 0, .2);
+}
+.removeAscii {
+  display: inline-block;
+  padding-left: 20px;
+}
+
+.removeAscii:hover {
+  color: rgba(178, 0, 0, .8);
+}
+
+#loginScreen{
+  display: block;
+  width: 400px;
+  height: 400px;
+  margin: 0 auto;
+  margin-top: 10%;
+  border: 1px solid #000;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 8px 6px 6px #cccddd;
+}
+#top, #bottom{
+  font-family: 'Indie Flower', cursive;
+}
+#bottom{
+  margin-top: 20%;
+  width: 100%;
+}
+#user, #pass{
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  display: block;
+  margin-top: 5%;
+}
+#myname{
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  display: block;
+  margin: 0 auto;
+}
+#register{
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+}
+button{
+  margin-top: 25px;
+  padding: 4px 5px 4px 5px;
+  border-radius: 6px;
+  border: 1px solid #000;
+}
+a{
+  text-decoration: none;
+  color: #eaaabe;
+}
+.alert{
+  color: #b91919;
+}
+
+#registerScreen{
+  display: block;
+  width: 400px;
+  height: 400px;
+  margin: 0 auto;
+  margin-top: 10%;
+  border: 1px solid #000;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 8px 6px 6px #cccddd;
+}
+#top, #bottom{
+  font-family: 'Indie Flower', cursive;
+}
+#bottom{
+  margin-top: 20%;
+  width: 100%;
+  text-align: center;
+}
+#user, #pass{
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  display: block;
+  margin-top: 5%;
+}
+#myname{
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+}
+#enter{
+  margin-top: 5%;
+  font-size: 28px;
+  font-family: 'Poppins', sans-serif;
+}
+button{
+  margin-top: 25px;
+  padding: 4px 5px 4px 5px;
+  border-radius: 6px;
+  border: 1px solid #000;
+}
+a{
+  text-decoration: none;
+  color: #eaaabe;
+}
+.alert{
+  color: #b91919;
+}
+
+@media screen and (max-width: 800px){
+  html, body{
+    padding: 0;
+    margin: 0;
+  }
+  #top{
+    padding: 5px;
+  }
+  #registerScreen{
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0px 0px 0px #fff;
+    border: none;
+  }
+  #bottom{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+}
+
+/* for mobile devices */
+@media screen and (max-width: 800px){
+  body, html{
+    padding: 0;
+    margin: 0;
+  }
+  #loginScreen{
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0px 0px 0px #fff;
+    border: none;
+  }
+  #bottom{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 800px){
+  #optionsBar {
+  }
+  #reactionASCII h3{
+    font-size: 18px;
+  }
+  #people h2{
+    font-size: 20px;
+  }
+  #m{
+    width: 60%;
+  }
+  input, select{
+    width: 100%;
+  }
+  #asciiReactionChoices{
+    border: none;
+  }
+  #asciiReactionChoices p{
+    font-size: 12px;
+  }
+  #asciiReactionChoices ul{
+    padding: 0;
+  }
+  #asciiReactionChoices li{
+    font-size: 10px;
+    whitespace: nowrap;
+  }
+  .removeAscii{
+    color: rgba(178, 0, 0, .8);
+  }
+
+}

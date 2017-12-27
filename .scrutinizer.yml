@@ -1,0 +1,17 @@
+checks:
+    javascript: true
+tools:
+    external_code_coverage: true
+build:
+    dependencies:
+        #before:
+            #- npm install istanbul   # or add it as part of your package.json
+
+    tests:
+        override:
+            -
+                #command: 'istanbul cover --report clover test.js'
+                command: 'npm run test-scrutinizer'
+                coverage:
+                    file: 'coverage/clover.xml'
+                    format: 'clover'

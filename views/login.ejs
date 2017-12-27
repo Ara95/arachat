@@ -1,0 +1,58 @@
+<!doctype html>
+
+<html>
+
+<style>
+	body{
+		padding: 0;
+	}
+
+</style>
+
+<head>
+	<meta charset='utf-8'>
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+	<title> boringChat login </title>
+</head>
+
+<body>
+
+	<div id='loginScreen'>
+		<div id='top'>
+			<h2> Welcome to boringChat! </h2>
+		</div>
+
+		<!-- show message that comes back with authentication, if any -->
+		<% if (message.length > 0) { %>
+			<div class='alert'> <%= message %></div>
+		<% } %>
+
+		<!-- login form -->
+		<form action='/login' method='post'>
+			<div>
+				<label id='user'> user name: <input name='username' type='text'></label>
+				<label id='pass'> password: <input name='password' type='password'></label>
+			</div>
+
+			<button id='submit'> enter </button>
+		</form>
+
+		<!-- end form -->
+
+		<p id='register'> or <a href='/register'> register </a> as a new user </p>
+
+		<div id='bottom'>
+			<p id='myname'> (c) Ara </p>
+		</div>
+	</div>
+
+</body>
+
+<script>
+</script>
+
+</html>

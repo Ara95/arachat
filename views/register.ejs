@@ -1,0 +1,57 @@
+<!-- register page for my chat app -->
+
+<!doctype html>
+
+<html>
+
+<style>
+	body{
+		padding: 0;
+	}
+
+</style>
+
+<head>
+	<meta charset='utf-8'>
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<title> boringChat register </title>
+</head>
+
+<body>
+
+	<div id='registerScreen'>
+		<div id='top'>
+			<h2> please enter a username and password! </h2>
+		</div>
+
+		<% if(message.length > 0) { %>
+			<div class='alert'> <%= message %></div>
+		<% } %>
+
+		<!-- register form -->
+		<form action='/register' method='post'>
+			<div>
+				<label id='user'> user name: <input name='username' type='text'></label>
+				<label id='pass'> password: <input name='password' type='password'></label>
+			</div>
+			<button id='submit'> enter </button>
+		</form>
+		<!-- end form -->
+
+		<div id='bottom'>
+			<p id='myname'> (c) n.c.h 2017 </p>
+		</div>
+	</div>
+
+</body>
+
+<script>
+
+
+</script>
+
+</html>
