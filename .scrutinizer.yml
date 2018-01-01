@@ -1,14 +1,11 @@
-filter:
-    excluded_paths: [client/public/*]
+checks:
+    javascript: true
 
 build:
-    environment:
-        mongodb: '3.2'
-        node: v9.2.1
     tests:
         override:
             -
                 command: 'npm run test-scrutinizer'
                 coverage:
-                    file: 'coverage/clover.xml'
+                    file: 'build/coverage/clover.xml'
                     format: 'clover'
