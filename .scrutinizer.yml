@@ -1,7 +1,11 @@
 checks:
     javascript: true
-
+filter:
+    excluded_paths: [client/public/*]
 build:
+    environment:
+        mongodb: '3.2'
+        node: v9.2.1
     tests:
         override:
             -
