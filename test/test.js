@@ -1,26 +1,56 @@
-var assert = require('assert');
-
-// To avoid errors
-var mocha = require('mocha');
-var describe = mocha.describe;
-var it = mocha.it;
-
-var request = require('supertest');
-var app = require('../routes/routes.js');
-
-
-describe("Testing", function() {
-    it("Testing true", function() {
-        let one = 1;
-        let five = 1;
-
-        assert.equal(one, five);
+"use strict";
+// NPM install mongoose and chai. Make sure mocha is globally
+// installed
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+const chai = require('chai');
+const expect = chai.expect;
+const testSchema = new Schema({
+  name: { type: String, required: true }
+});
+const Name = mongoose.model('Name', testSchema);
+describe('Database Tests', function() {
+  before(function (done) {
+    mongoose.connect('mongodb://127.0.0.1:27017/chatapp');
+    const db = mongoose.connection;
+    db.on('error', console.error.bind(console, 'connection error'));
+    db.once('open', function() {
+      console.log('We are connected to test database!');
+      done();
     });
+  });
+  describe('Test Database', function() {
+    //Save object with 'name' value of 'Mike"
+    it('New name saved to test database', function(done) {
+      var testName = Name({
+        name: 'Mike'
+      });
 
-    it("Testing false", function() {
-        let one = 1;
-        let two = 2;
-
-        assert.notEqual(one, two);
+      testName.save(done);
     });
+    it('Dont save incorrect format to database', function(done) {
+      //Attempt to save with wrong info. An error should trigger
+      var wrongSave = Name({
+        notName: 'Not Mike'
+      });
+      wrongSave.save(err => {
+        if(err) { return done(); }
+        throw new Error('Should generate error!');
+      });
+    });
+    it('Should retrieve data from test database', function(done) {
+      //Look up the 'Mike' object previously saved.
+      Name.find({name: 'Mike'}, (err, name) => {
+        if(err) {throw err;}
+        if(name.length === 0) {throw new Error('No data!');}
+        done();
+      });
+    });
+  });
+  //After all tests are finished drop database and close connection
+  after(function(done){
+    mongoose.connection.db.dropDatabase(function(){
+      mongoose.connection.close(done);
+    });
+  });
 });

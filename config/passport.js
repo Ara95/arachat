@@ -17,7 +17,6 @@ module.exports = function(passport){
 		});
 	});
 
-
 	passport.use('local-register', new LocalStrategy({
 		usernameField: 'username',
 		passwordField: 'password',
@@ -70,9 +69,11 @@ module.exports = function(passport){
 
 			// if no user found, return error message
 			if(!user){
+				// req.flash sets flashdata using connect-flash
 				return done(null, false, req.flash('loginMessage', 'Sorry, that user is not registered!'));
 			}
 
+			// if user is found but password incorrect
 			if(!user.validPassword(password)){
 				return done(null, false, req.flash('loginMessage', 'Wrong password!'));
 			}
@@ -81,6 +82,5 @@ module.exports = function(passport){
 			return done(null, user);
 		});
 	}));
-
 
 }

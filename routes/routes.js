@@ -1,4 +1,5 @@
 // load user model
+var app = require('express')();
 var User = require('../models/user.js');
 
 module.exports = function(app, passport){
