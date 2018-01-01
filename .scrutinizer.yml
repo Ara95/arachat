@@ -1,12 +1,22 @@
-filter:
-    excluded_paths:
-        - "**/__tests__/"
-        - "*.min.js"
+checks:
+    javascript: true
+
 build:
+    nodes:
+        analysis:
+            environment:
+                node:
+                    version: 8.9.1
+        tests: true
+    environment:
+        mongodb: '3.2'
+        node: 9.2.1
+    dependencies:
+
     tests:
         override:
             -
-                command: 'npm run coverage'
+                command: 'npm run test-scrutinizer'
                 coverage:
-                    file: 'coverage/clover.xml'
+                    file: 'build/coverage/clover.xml'
                     format: 'clover'
