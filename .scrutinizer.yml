@@ -1,6 +1,16 @@
 checks:
     javascript: true
 
+build:
+    nodes:
+        analysis:
+            environment:
+                node:
+                    version: 8.9.1
+        tests: true
+    environment:
+        node: 8.9.1
+    dependencies:
 filter:
     excluded_paths:
         - node_modules/*
