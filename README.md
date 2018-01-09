@@ -1,5 +1,6 @@
 # Badges
-[![BCH compliance](https://bettercodehub.com/edge/badge/Ara95/chatapp?branch=master)](https://bettercodehub.com/) 
+[![BCH compliance](https://bettercodehub.com/edge/badge/Ara95/arachat?branch=master)](https://bettercodehub.com/)
+
 
 
 

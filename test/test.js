@@ -7,24 +7,16 @@ var it = mocha.it;
 
 var request = require('supertest');
 var app = require('../routes/routes.js');
-
-
-describe("Testing", function() {
-    it("Testing true", function() {
-        let username = 'ara';
-        let username1 = 'erik';
-
-        assert.notEqual(username, username1);
-    })
-
-});
+const User = require('../models/user.js');
 
 describe("Testing", function() {
-    it("Testing true", function(done) {
-      request(app).get("/")
-      .expect(200)
-      .expect(/AraChat/)
-      done();
-    })
+  describe("Testing", function() {
+      it("Testing true", function() {
+          let username = 'ara';
+          let username1 = 'erik';
 
+          assert.notEqual(username, username1);
+      })
+
+  });
 });
