@@ -18,7 +18,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
-	<title> boringChat register </title>
+	<title><%= message %></title>
 </head>
 
 <body>
@@ -35,7 +35,7 @@
 		<!-- register form -->
 		<form action='/register' method='post'>
 			<div>
-				<label id='user'> user name: <input name='username' type='text'></label>
+				<label id='user'> username: <input name='username' type='text'></label>
 				<label id='pass'> password: <input name='password' type='password'></label>
 			</div>
 			<button id='submit'> enter </button>

@@ -50,40 +50,26 @@ services:
         ports:
             - "3002:3002"
 
-
     express:
         build:
             context: .
             dockerfile: Docker/Dockerfile-express
         environment:
-            - DBWEBB_PORT=3353
+            - DBWEBB_PORT=1338
             - DBWEBB_DSN=mongodb://mongodb:27017/test
         volumes:
             - ./:/app/
-            - /app/node_modules/
         ports:
-            - 3353:3353
+            - 1338:1338
         links:
             - mongodb
         command: "npm start"
     mongodb:
         image: mongo
-        container_name: "mongodb"
         environment:
-            - MONGO_DATA_DIR=/data/db
+            - MONGO_DATA_DIR=/data3/db
         volumes:
-            - ./data/db:/data/db
+            - ./data3/db:/data3/db
         ports:
             - 27017:27017
-        command: mongod
-
-    test:
-        build:
-            context: .
-            dockerfile: Docker/Dockerfile-node-latest
-        environment:
-            - DBWEBB_DSN=mongodb://mongodb:27017/test
-        links:
-            - express
-        volumes:
-            - ./:/home/node/app
+        command: mongod --bind_ip_all

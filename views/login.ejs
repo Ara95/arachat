@@ -2,13 +2,6 @@
 
 <html>
 
-<style>
-	body{
-		padding: 0;
-	}
-
-</style>
-
 <head>
 	<meta charset='utf-8'>
 	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
@@ -16,14 +9,18 @@
 	<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
-	<title> boringChat login </title>
+	<title> <%= message %></title>
 </head>
-
+<style>
+	body{
+		padding: 0;
+	}
+	</style>
 <body>
 
 	<div id='loginScreen'>
 		<div id='top'>
-			<h2> Welcome to boringChat! </h2>
+			<h2>Welcome to AraChat!</h2>
 		</div>
 
 		<!-- show message that comes back with authentication, if any -->
@@ -34,7 +31,7 @@
 		<!-- login form -->
 		<form action='/login' method='post'>
 			<div>
-				<label id='user'> user name: <input name='username' type='text'></label>
+				<label id='user'> username: <input name='username' type='text'></label>
 				<label id='pass'> password: <input name='password' type='password'></label>
 			</div>
 

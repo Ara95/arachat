@@ -7,7 +7,6 @@ var it = mocha.it;
 
 var request = require('supertest');
 var app = require('../routes/routes.js');
-var app = require('../models/user.js');
 
 
 describe("Testing", function() {
@@ -16,6 +15,16 @@ describe("Testing", function() {
         let username1 = 'erik';
 
         assert.notEqual(username, username1);
+    })
+
+});
+
+describe("Testing", function() {
+    it("Testing true", function(done) {
+      request(app).get("/")
+      .expect(200)
+      .expect(/AraChat/)
+      done();
     })
 
 });
