@@ -7,7 +7,6 @@ var it = mocha.it;
 
 var request = require('supertest');
 var app = require('../routes/routes.js');
-const User = require('../models/user.js');
 
 describe("Testing", function() {
   describe("Testing", function() {
