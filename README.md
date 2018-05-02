@@ -2,7 +2,7 @@
 [![BCH compliance](https://bettercodehub.com/edge/badge/Ara95/arachat?branch=master)](https://bettercodehub.com/) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Ara95/arachat/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Ara95/arachat/?branch=master) [![Code Coverage](https://scrutinizer-ci.com/g/Ara95/arachat/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/Ara95/arachat/?branch=master) [![Build Status](https://scrutinizer-ci.com/g/Ara95/arachat/badges/build.png?b=master)](https://scrutinizer-ci.com/g/Ara95/arachat/build-status/master) [![Build Status](https://travis-ci.org/Ara95/arachat.svg?branch=master)](https://travis-ci.org/Ara95/arachat)
 
 
-#Application
+# Application
 
 As I worked with earlier in the course, I have continued to work with my chat application. I've been thinking between different templates during the course of the course but has landed on using me out. I think that went well. However, the design of the app itself has not been as nice as I hoped for. Was quite messy towards the end. So instead of running with React or PUG, as many did, I chose EJS, which can write JavaScript directly in the files and use simple HTML.
 
