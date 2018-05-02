@@ -12,6 +12,6 @@
         "build/"
     ],
     "all": true,
-    "report-dir": "./build/coverage",
-    "temp-directory": "./build/.nyc_output"
+    "report-dir": "./build2/coverage",
+    "temp-directory": "./build2/.nyc_output"
 }

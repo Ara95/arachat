@@ -8,14 +8,13 @@ filter:
         - views/*
 
 build:
-    dependencies:
-        before:
-          #  - npm install istanbul   # or add it as part of your package.json
-
+    environment:
+        node: '8.6.0'
+        mongodb: '3.2'
     tests:
         override:
             -
                 command: 'npm run test-scrutinizer'
                 coverage:
-                    file: 'build/coverage/clover.xml'
+                    file: 'build2/coverage/clover.xml'
                     format: 'clover'
