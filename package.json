@@ -23,6 +23,7 @@
     "express": "^4.16.2",
     "express-session": "^1.15.5",
     "istanbul": "^0.4.5",
+    "mongo-mock": "^3.1.0",
     "mongodb": "^2.2.33",
     "mongoose": "^4.11.5",
     "nyc": "^11.4.1",
