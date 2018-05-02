@@ -4,8 +4,10 @@
   "description": "my first socket.io application",
   "main": "server.js",
   "scripts": {
-    "test": "nyc --reporter=html --reporter=text mocha test/**/*.js",
-    "test-scrutinizer": "nyc --all --reporter=clover mocha 'test/**/*.js'",
+    "start-docker": "docker-compose up -d express",
+    "stop-docker": "docker-compose stop express && docker-compose stop mongodb",
+    "test": "mocha 'test/**/*.js' --exit",
+    "test-scrutinizer": "nyc --all --reporter=clover mocha test/**/*.js --exit",
     "test-docker1": "docker-compose run node_latest_alpine npm test",
     "test-docker2": "docker-compose run node7_alpine npm test",
     "test-docker3": "docker-compose run node6_alpine npm test"

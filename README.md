@@ -49,8 +49,8 @@ I chose this service because I can easily see which one of the 10 guidelines for
 * npm start
 
 # Test
-´´Npm test´´
-´´Npm test´´
+´´npm run test´´
+´´npm run test-scrutinizer´´
 ´´Npm test´´
 
 
