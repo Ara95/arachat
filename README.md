@@ -2,6 +2,11 @@
 [![BCH compliance](https://bettercodehub.com/edge/badge/Ara95/arachat?branch=master)](https://bettercodehub.com/) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Ara95/arachat/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Ara95/arachat/?branch=master) [![Code Coverage](https://scrutinizer-ci.com/g/Ara95/arachat/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/Ara95/arachat/?branch=master) [![Build Status](https://scrutinizer-ci.com/g/Ara95/arachat/badges/build.png?b=master)](https://scrutinizer-ci.com/g/Ara95/arachat/build-status/master) [![Build Status](https://travis-ci.org/Ara95/arachat.svg?branch=master)](https://travis-ci.org/Ara95/arachat)
 
 
+#Application
+
+As I worked with earlier in the course, I have continued to work with my chat application. I've been thinking between different templates during the course of the course but has landed on using me out. I think that went well. However, the design of the app itself has not been as nice as I hoped for. Was quite messy towards the end. So instead of running with React or PUG, as many did, I chose EJS, which can write JavaScript directly in the files and use simple HTML.
+
+I have also chosen to continue with MongoDB since I found it easy to handle and that there was a lot about it on the web that you could read about. All I have added is a file handler that can send pictures to the chat, which did not work as I wanted earlier.
 
 
 # Techniques used   
@@ -48,10 +53,18 @@ I chose this service because I can easily see which one of the 10 guidelines for
 * npm install
 * npm start
 
+Starts server and mongodb with docker
+* npm start-docker
+
+Stops server and mongodb with docker
+* npm stop-docker
+
 # Test
 ´´npm run test´´
 ´´npm run test-scrutinizer´´
-´´Npm test´´
+´´npm test-docker1´´
+´´npm test-docker2´´
+´´npm test-docker3´´
 
 
 ### Steps needed to make this work locally
