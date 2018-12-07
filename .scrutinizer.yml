@@ -3,19 +3,6 @@ checks:
 
 filter:
     excluded_paths:
-        - node_modules/*
-        - static/*
-        - views/*
-
-build:
-    dependencies:
-        before:
-          #  - npm install istanbul   # or add it as part of your package.json
-
-    tests:
-        override:
-            -
-                command: 'npm run test-scrutinizer'
-                coverage:
-                    file: 'build2/coverage/clover.xml'
-                    format: 'clover'
+        - less/node_modules/*
+        - coverage/*
+        - static/jquery-emoji-picker/*

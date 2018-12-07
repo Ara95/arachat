@@ -1,17 +1,15 @@
 {
     "description": "",
     "reporter": [
-        "html",
-        "text",
-        "clover"
+        "html"
     ],
     "include": [
-      "src/**/*.js"
+      "routes/*.js"
     ],
     "exclude": [
-        "build/"
+      "coverage/"
     ],
     "all": true,
-    "report-dir": "./build2/coverage",
-    "temp-directory": "./build2/.nyc_output"
+    "report-dir": "./build/coverage",
+    "temp-directory": "./build/.nyc_output"
 }

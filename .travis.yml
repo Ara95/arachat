@@ -2,10 +2,21 @@ language: node_js
 
 node_js:
     - "node"
-    - "6"
-    - "7"
+    - "8"
 
 sudo: false
 
 git:
     submodules: false
+
+services:
+  - mongodb
+
+before_script:
+    - make install
+
+script:
+    - make test
+
+after_success:
+    - npm run report-coveralls
