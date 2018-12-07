@@ -1,9 +1,15 @@
-checks:
-    javascript: true
-
 filter:
     excluded_paths:
-        - node_modules/*
-        - coverage/*
-        - views/*
-        - routes/*
+        - "**/__tests__/"
+        - "*.test.js"
+        - "*.min.js"
+build:
+    environment:
+        node: v9.3.0
+    tests:
+        override:
+            -
+                command: 'npm run test'
+                coverage:
+                    file: 'coverage/clover.xml'
+                    format: 'clover'
