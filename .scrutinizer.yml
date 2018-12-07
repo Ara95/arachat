@@ -1,14 +1,14 @@
 filter:
-    excluded_paths:
-        - "**/__tests__/"
-        - "*.test.js"
-        - "*.min.js"
+    excluded_paths: [client/public/*]
+
 build:
     environment:
-        node: v9.3.0
+        mongodb: '3.4'
+        node: v10.13.0
     tests:
         override:
             -
-                command: 'npm run test'
+                command: 'npm run test-scrutinizer'
                 coverage:
-                    file: 'coverage/*'
+                    file: 'coverage/clover.xml'
+                    format: 'clover'
