@@ -8,6 +8,7 @@
     "stop-docker": "docker-compose stop express && docker-compose stop mongodb",
     "test": "nyc --reporter=html --reporter=text mocha --exit test/**/*.js",
     "report-coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "test-scrutinizer": "nyc --all --reporter=text mocha test/**/*.js --exit",
     "test-docker1": "docker-compose run node_latest_alpine npm test",
     "test-docker2": "docker-compose run node7_alpine npm test",
     "test-docker3": "docker-compose run node6_alpine npm test"
