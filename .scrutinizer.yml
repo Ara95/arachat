@@ -3,6 +3,7 @@ checks:
 
 filter:
     excluded_paths:
-        - less/node_modules/*
+        - node_modules/*
         - coverage/*
-        - static/jquery-emoji-picker/*
+        - views/*
+        - routes/*
